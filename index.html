@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Tu Nombre</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border: #2a2a3a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 20px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 48px 0;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* About */
+        .about-content {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 32px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: var(--bg-secondary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, #a855f7 100%);
+            border-radius: 2px;
+        }
+
+        /* Education */
+        .education-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-degree {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .education-school {
+            font-size: 15px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .education-year {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .title {
+                font-size: 17px;
+            }
+            
+            header {
+                padding: 60px 0 40px;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="avatar">T</div>
+            <h1>Tu Nombre</h1>
+            <p class="title">Tu Título Profesional</p>
+            <div class="contact-links">
+                <a href="mailto:tu@email.com">tu@email.com</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <p>Profesional dinámico y orientado a resultados con experiencia en desarrollo web y gestión de proyectos. Capaz de trabajar bajo presión y cumplir plazos ajustados. Buscando aportar mis habilidades técnicas y blandas en un entorno desafiante donde pueda crecer profesionalmente.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Experiencia</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p class="timeline-date">2022 - Actualidad</p>
+                    <h3 class="timeline-title">Puesto Actual</h3>
+                    <p class="timeline-company">Empresa Actual</p>
+                    <p class="timeline-description">Descripción de tus responsabilidades y logros en este puesto. Aporté soluciones innovadoras que mejoraron la eficiencia del equipo.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">2019 - 2022</p>
+                    <h3 class="timeline-title">Puesto Anterior</h3>
+                    <p class="timeline-company">Empresa Anterior</p>
+                    <p class="timeline-description">Descripción de tus responsabilidades y logros. Colaboré en proyectos importantes que tiveram impacto significativo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <p class="skill-name">HTML/CSS</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-name">JavaScript</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-name">React</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-name">Node.js</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 70%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-name">Git</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-name">Bases de Datos</p>
+                    <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Educación</h2>
+            <div class="education-item">
+                <p class="education-degree">Tu Carrera / Título</p>
+                <p class="education-school">Tu Universidad</p>
+                <p class="education-year">2015 - 2019</p>
+            </div>
+            <div class="education-item">
+                <p class="education-degree">Cursos / Certificaciones</p>
+                <p class="education-school">Institución</p>
+                <p class="education-year">2020</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Tu Nombre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

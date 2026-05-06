@@ -147,6 +147,66 @@
             margin-bottom: 0.5rem;
         }
 
+        .project-card {
+            background-color: var(--vscode-sidebar);
+            border: 1px solid var(--vscode-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .project-card:hover {
+            border-color: var(--vscode-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 122, 204, 0.2);
+        }
+
+        .project-thumbnail {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumbnail::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, var(--vscode-sidebar), transparent);
+        }
+
+        .project-content {
+            padding: 1rem;
+        }
+
+        .project-title {
+            color: var(--vscode-text);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--vscode-text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-link {
+            color: var(--vscode-accent);
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
         header {
             background: linear-gradient(180deg, var(--vscode-sidebar) 0%, var(--vscode-bg) 100%);
         }
@@ -367,6 +427,75 @@
                     <span class="tag">Git</span>
                     <span class="tag">Adobe Suite</span>
                     <span class="tag">Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-folder"></i></span>
+                <span class="fw-semibold">Proyectos</span>
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://simone0780.github.io/webcv/" target="_blank" class="project-card">
+                        <div class="project-thumbnail" style="background: linear-gradient(135deg, #1e1e1e 0%, #007acc 50%, #4ec9b0 100%);">
+                            <i class="bi bi-person-badge" style="color: #fff;"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">WebCV</h5>
+                            <p class="project-desc">Portfolio personal con tema oscuro estilo VS Code</p>
+                            <span class="project-link"><i class="bi bi-github"></i> Ver código</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://simone0780.github.io/parqueNatural/" target="_blank" class="project-card">
+                        <div class="project-thumbnail" style="background: linear-gradient(135deg, #2d5a27 0%, #4a7c3f 50%, #8fbc8f 100%);">
+                            <i class="bi bi-tree" style="color: #fff;"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Parque Natural</h5>
+                            <p class="project-desc">Web informativa del Parque Sierra de Cazorla</p>
+                            <span class="project-link"><i class="bi bi-github"></i> Ver código</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://simone0780.github.io/techDeveloper/" target="_blank" class="project-card">
+                        <div class="project-thumbnail" style="background: linear-gradient(135deg, #0d1117 0%, #238636 50%, #58a6ff 100%);">
+                            <i class="bi bi-code-square" style="color: #fff;"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Tech Developer</h5>
+                            <p class="project-desc">CV profesional para desarrollador técnico</p>
+                            <span class="project-link"><i class="bi bi-github"></i> Ver código</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://simone0780.github.io/Quizz/" target="_blank" class="project-card">
+                        <div class="project-thumbnail" style="background: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #f59e0b 100%);">
+                            <i class="bi bi-question-circle" style="color: #fff;"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Quiz Master</h5>
+                            <p class="project-desc">Aplicación de cuestionarios interactivos</p>
+                            <span class="project-link"><i class="bi bi-github"></i> Ver código</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://github.com/simone0780/Gossos" target="_blank" class="project-card">
+                        <div class="project-thumbnail" style="background: linear-gradient(135deg, #8b4513 0%, #cd853f 50%, #deb887 100%);">
+                            <i class="bi bi-github"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Gossos</h5>
+                            <p class="project-desc">Proyecto JavaScript</p>
+                            <span class="project-link"><i class="bi bi-github"></i> Ver código</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

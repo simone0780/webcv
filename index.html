@@ -1,427 +1,409 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Tu Nombre</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <title>CV - Ernesto Lopez Simon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --accent: #6366f1;
-            --accent-hover: #818cf8;
-            --border: #2a2a3a;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --vscode-bg: #1e1e1e;
+            --vscode-sidebar: #252526;
+            --vscode-activity: #333333;
+            --vscode-accent: #007acc;
+            --vscode-accent-hover: #0098ff;
+            --vscode-green: #4ec9b0;
+            --vscode-orange: #ce9178;
+            --vscode-purple: #c586c0;
+            --vscode-yellow: #dcdcaa;
+            --vscode-text: #d4d4d4;
+            --vscode-text-dim: #858585;
+            --vscode-border: #3c3c3c;
+            --vscode-selection: #264f78;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
+            background-color: var(--vscode-bg);
+            color: var(--vscode-text);
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Header */
-        header {
-            padding: 80px 0 60px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        .bg-vscode {
+            background-color: var(--vscode-bg);
         }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: 700;
-            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
+        .bg-sidebar {
+            background-color: var(--vscode-sidebar);
         }
 
-        h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .border-vscode {
+            border-color: var(--vscode-border) !important;
         }
 
-        .title {
-            font-size: 20px;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 16px;
+        .text-accent {
+            color: var(--vscode-accent) !important;
         }
 
-        .contact-links {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .text-green {
+            color: var(--vscode-green) !important;
         }
 
-        .contact-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+        .text-orange {
+            color: var(--vscode-orange) !important;
         }
 
-        .contact-links a:hover {
-            border-color: var(--accent);
-            color: var(--text-primary);
+        .text-purple {
+            color: var(--vscode-purple) !important;
         }
 
-        /* Sections */
-        section {
-            padding: 48px 0;
+        .btn-accent {
+            background-color: var(--vscode-accent);
+            border-color: var(--vscode-accent);
+            color: #fff;
         }
 
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .btn-accent:hover {
+            background-color: var(--vscode-accent-hover);
+            border-color: var(--vscode-accent-hover);
+            color: #fff;
         }
 
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+        .skill-bar {
+            height: 6px;
+            background-color: var(--vscode-sidebar);
+            border-radius: 3px;
+            overflow: hidden;
         }
 
-        /* About */
-        .about-content {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 32px;
-            border: 1px solid var(--border);
-        }
-
-        .about-content p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        /* Experience */
-        .timeline {
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--vscode-accent), var(--vscode-green));
+            border-radius: 3px;
+            transition: width 0.5s ease;
         }
 
         .timeline-item {
             position: relative;
-            padding-bottom: 32px;
+            padding-left: 2rem;
+            border-left: 2px solid var(--vscode-border);
+            padding-bottom: 2rem;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -28px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: var(--vscode-accent);
             border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            border: 2px solid var(--vscode-bg);
         }
 
         .timeline-item:last-child {
             padding-bottom: 0;
         }
 
-        .timeline-date {
-            font-size: 13px;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .timeline-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .timeline-company {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-        }
-
-        .timeline-description {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .skill-item {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 20px 24px;
-            border: 1px solid var(--border);
+        .card-vscode {
+            background-color: var(--vscode-sidebar);
+            border: 1px solid var(--vscode-border);
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
-        .skill-item:hover {
-            border-color: var(--accent);
+        .card-vscode:hover {
+            border-color: var(--vscode-accent);
             transform: translateY(-2px);
         }
 
-        .skill-name {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 8px;
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--vscode-sidebar);
+            border-radius: 8px;
+            font-size: 1.5rem;
         }
 
-        .skill-bar {
-            height: 4px;
-            background: var(--bg-secondary);
-            border-radius: 2px;
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(0, 122, 204, 0.2);
+            color: var(--vscode-accent);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header {
+            background: linear-gradient(180deg, var(--vscode-sidebar) 0%, var(--vscode-bg) 100%);
+        }
+
+        .avatar-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             overflow: hidden;
+            border: 3px solid var(--vscode-accent);
+            box-shadow: 0 0 30px rgba(0, 122, 204, 0.3);
+            margin: 0 auto;
         }
 
-        .skill-level {
+        .avatar-container img {
+            width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, var(--accent) 0%, #a855f7 100%);
-            border-radius: 2px;
+            object-fit: cover;
         }
 
-        /* Education */
-        .education-item {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 24px;
-            border: 1px solid var(--border);
-            margin-bottom: 16px;
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--vscode-sidebar);
+            border: 1px solid var(--vscode-border);
+            border-radius: 6px;
+            color: var(--vscode-text-dim);
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .education-item:last-child {
-            margin-bottom: 0;
+        .contact-link:hover {
+            border-color: var(--vscode-accent);
+            color: var(--vscode-text);
+            text-decoration: none;
         }
 
-        .education-degree {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--vscode-sidebar);
+            border-radius: 6px;
+            margin-right: 0.75rem;
+            color: var(--vscode-accent);
         }
 
-        .education-school {
-            font-size: 15px;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .education-year {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
         footer {
-            padding: 48px 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 48px;
+            background-color: var(--vscode-sidebar);
+            border-top: 1px solid var(--vscode-border);
         }
 
-        footer p {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            .title {
-                font-size: 17px;
-            }
-
-            header {
-                padding: 60px 0 40px;
-            }
-
-            .avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
+        @media (max-width: 768px) {
+            .avatar-container {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
 </head>
-
 <body>
-    <header>
+    <header class="py-5">
         <div class="container">
-            <div class="avatar"><img src="img/Simon.png" alt="Ernesto Lopez Simon"
-                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"></div>
-            <h1>Ernesto Lopez Simon</h1>
-            <p class="title">Software Developer</p>
-            <div class="contact-links">
-                <a href="mailto:simonernestolopez71080@mail.com">simonernestolopez71080@mail.com</a>
-                <a href="https://linkedin.com">LinkedIn</a>
-                <a href="https://github.com/simone0780">GitHub</a>
+            <div class="avatar-container mb-4">
+                <img src="img/Simon.png" alt="Ernesto Lopez Simon">
+            </div>
+            <h1 class="text-center fw-bold mb-2">Ernesto Lopez Simon</h1>
+            <p class="text-accent text-center fs-5 mb-4 mono">&lt;Software Developer /&gt;</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="mailto:simonernestolopez71080@mail.com" class="contact-link">
+                    <i class="bi bi-envelope"></i>
+                    <span>simonernestolopez71080@mail.com</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="contact-link">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/simone0780" target="_blank" class="contact-link">
+                    <i class="bi bi-github"></i>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <section id="about">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="about-content">
-                <p>Desarrollador de software apasionado por crear aplicaciones web modernas,
+    <main class="container py-5">
+        <section id="about" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-person"></i></span>
+                <span class="fw-semibold">Sobre Mí</span>
+            </h2>
+            <div class="card-vscode p-4">
+                <p class="mb-0 lh-lg">Desarrollador de software apasionado por crear aplicaciones web modernas,
                     escalables y centradas en el usuario.
                     Experiencia en tecnologías front-end y back-end, grandes conocimientos en diseño gráfico.
                     Siempre en busca de nuevos desafíos y oportunidades para aprender y crecer profesionalmente.</p>
             </div>
         </section>
 
-        <section id="experience">
-            <h2 class="section-title">Experiencia</h2>
-            <div class="timeline">
+        <section id="experience" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-briefcase"></i></span>
+                <span class="fw-semibold">Experiencia</span>
+            </h2>
+            <div class="ps-3">
                 <div class="timeline-item">
-                    <p class="timeline-date">2026 - Actual</p>
-                    <h3 class="timeline-title">Full Stack Developer</h3>
-                    <p class="timeline-company">Tech Company</p>
-                    <p class="timeline-description">Desarrollo de aplicaciones web full stack con tecnologías modernas.
-                    </p>
+                    <span class="text-accent small mono d-block mb-1">2026 - Actual</span>
+                    <h3 class="fw-semibold mb-1">Full Stack Developer</h3>
+                    <p class="text-orange mb-2">Tech Company</p>
+                    <p class="text-secondary mb-0">Desarrollo de aplicaciones web full stack con tecnologías modernas.</p>
                 </div>
                 <div class="timeline-item">
-                    <p class="timeline-date">2025 - 2026</p>
-                    <h3 class="timeline-title">Frontend Developer</h3>
-                    <p class="timeline-company">Xtalento Digital</p>
-                    <p class="timeline-description">Desarrollo frontend con React y Bootstrap.</p>
+                    <span class="text-accent small mono d-block mb-1">2025 - 2026</span>
+                    <h3 class="fw-semibold mb-1">Frontend Developer</h3>
+                    <p class="text-orange mb-2">Xtalento Digital</p>
+                    <p class="text-secondary mb-0">Desarrollo frontend con React y Bootstrap.</p>
                 </div>
                 <div class="timeline-item">
-                    <p class="timeline-date">2018 - 2025</p>
-                    <h3 class="timeline-title">Diseño Gráfico</h3>
-                    <p class="timeline-company">DemiBold</p>
-                    <p class="timeline-description">Diseño gráfico y branding para clientes diversos.</p>
+                    <span class="text-accent small mono d-block mb-1">2018 - 2025</span>
+                    <h3 class="fw-semibold mb-1">Diseño Gráfico</h3>
+                    <p class="text-orange mb-2">DemiBold</p>
+                    <p class="text-secondary mb-0">Diseño gráfico y branding para clientes diversos.</p>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2 class="section-title">Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <p class="skill-name">HTML5</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
+        <section id="skills" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-code-slash"></i></span>
+                <span class="fw-semibold">Habilidades</span>
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">HTML5</span>
+                            <span class="text-accent small mono">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <p class="skill-name">CSS3</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">CSS3</span>
+                            <span class="text-accent small mono">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <p class="skill-name">JavaScript</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 60%"></div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">JavaScript</span>
+                            <span class="text-accent small mono">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 60%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <p class="skill-name">GitHub</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%"></div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">GitHub</span>
+                            <span class="text-accent small mono">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <p class="skill-name">Bootstrap</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 65%"></div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">Bootstrap</span>
+                            <span class="text-accent small mono">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 65%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <p class="skill-name">Adobe Illustrator</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <p class="skill-name">Adobe Photoshop</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 60%"></div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-medium">Adobe Illustrator</span>
+                            <span class="text-accent small mono">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="education">
-            <h2 class="section-title">Educación</h2>
-            <div class="education-item">
-                <p class="education-degree">Tu Carrera / Título</p>
-                <p class="education-school">Tu Universidad</p>
-                <p class="education-year">2015 - 2019</p>
+        <section id="technologies" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-stack"></i></span>
+                <span class="fw-semibold">Tecnologías</span>
+            </h2>
+            <div class="card-vscode p-4">
+                <div>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">Adobe Suite</span>
+                    <span class="tag">Figma</span>
+                </div>
             </div>
-            <div class="education-item">
-                <p class="education-degree">Cursos / Certificaciones</p>
-                <p class="education-school">Institución</p>
-                <p class="education-year">2020</p>
+        </section>
+
+        <section id="education" class="mb-5">
+            <h2 class="d-flex align-items-center mb-4">
+                <span class="section-icon"><i class="bi bi-mortarboard"></i></span>
+                <span class="fw-semibold">Educación</span>
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card-vscode p-4 h-100">
+                        <h5 class="fw-semibold mb-1">Tu Carrera / Título</h5>
+                        <p class="text-green mb-2">Tu Universidad</p>
+                        <p class="text-secondary small mb-0">2015 - 2019</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-vscode p-4 h-100">
+                        <h5 class="fw-semibold mb-1">Cursos / Certificaciones</h5>
+                        <p class="text-green mb-2">Institución</p>
+                        <p class="text-secondary small mb-0">2020</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>© 2026 Tu Nombre. Todos los derechos reservados.</p>
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-0 text-secondary">
+                <span class="mono text-accent">&lt;/&gt;</span>
+                © 2026 Ernesto Lopez Simon. Todos los derechos reservados.
+            </p>
         </div>
     </footer>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -27,6 +27,11 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--vscode-bg);
+            background-image: url('img/Fondo01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--vscode-text);
             min-height: 100vh;
         }
@@ -61,6 +66,10 @@
 
         .text-purple {
             color: var(--vscode-purple) !important;
+        }
+
+        .text-secondary.mb-0 {
+            color: #fff !important;
         }
 
         .btn-accent {
@@ -208,7 +217,9 @@
         }
 
         header {
-            background: linear-gradient(180deg, var(--vscode-sidebar) 0%, var(--vscode-bg) 100%);
+            background: linear-gradient(180deg, rgba(37, 37, 38, 0.78) 0%, rgba(30, 30, 30, 0.62) 100%);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
 
         .avatar-container {
@@ -498,7 +509,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="https://simone0780.github.io/Damm-logistics/" target="_blank" class="project-card">
+                    <a href="https://simone0780.github.io/Damm-Logistic/" target="_blank" class="project-card">
                         <div class="project-thumbnail" style="background: linear-gradient(135deg, #1b5e20 0%, #388e3c 50%, #a5d6a7 100%);">
                             <i class="bi bi-truck" style="color: #fff;"></i>
                         </div>
